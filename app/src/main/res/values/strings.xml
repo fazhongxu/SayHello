@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SayHello</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="greeting">Hello, %s!</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="say_hello">Say Hello</string>
+    <string name="login_title">Login</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="login_success">Login successful</string>
+    <string name="login_failed">Login failed</string>
+    <string name="welcome">Welcome, %s!</string>
+    <string name="logout">Logout</string>
+</resources>
