@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.xxl.sayhello">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
 
     <application
         android:name=".SayHelloApplication"
         android:allowBackup="true"
-        android:icon="@drawable/resources_ic_app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/resources_ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.SayHello"
         android:usesCleartextTraffic="true">
@@ -17,12 +20,33 @@
         <activity
             android:name=".ui.activities.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.SayHello">
+            android:theme="@style/Theme.SayHello" />
+        
+        <!-- 默认图标别名 -->
+        <activity-alias
+            android:name=".DefaultIconAlias"
+            android:targetActivity=".ui.activities.SplashActivity"
+            android:icon="@drawable/resources_ic_app_logo"
+            android:roundIcon="@drawable/resources_ic_app_logo"
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
+        
+        <!-- 备用图标别名 -->
+        <activity-alias
+            android:name=".AlternateIconAlias"
+            android:targetActivity=".ui.activities.SplashActivity"
+            android:icon="@drawable/resources_ic_app_logo1"
+            android:roundIcon="@drawable/resources_ic_app_logo1"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
         
         <activity
             android:name=".ui.activities.LoginActivity"

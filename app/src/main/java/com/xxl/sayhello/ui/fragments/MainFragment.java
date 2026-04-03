@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.xxl.sayhello.R;
+import com.xxl.sayhello.icon.IconManager;
+import com.xxl.sayhello.share.ShareContent;
+import com.xxl.sayhello.share.ShareManager;
 import com.xxl.sayhello.utils.SharedPreferencesUtil;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -21,6 +25,8 @@ public class MainFragment extends Fragment {
 
     private TextView welcomeText;
     private Button logoutButton;
+    private Button shareButton;
+    private Button iconSwitchButton;
 
     @Nullable
     @Override
@@ -34,11 +40,34 @@ public class MainFragment extends Fragment {
     private void initViews(View view) {
         welcomeText = view.findViewById(R.id.welcomeText);
         logoutButton = view.findViewById(R.id.logoutButton);
+        shareButton = view.findViewById(R.id.shareButton);
+        iconSwitchButton = view.findViewById(R.id.iconSwitchButton);
 
         logoutButton.setOnClickListener(v -> {
             SharedPreferencesUtil.clearUserData(requireContext());
             SharedPreferencesUtil.setLoggedIn(requireContext(), false);
             requireActivity().finish();
+        });
+
+        shareButton.setOnClickListener(v -> {
+            // 测试分享功能
+            ShareContent content = new ShareContent.Builder()
+                    .setTitle("SayHello 应用")
+                    .setContent("这是一个测试分享，来自 SayHello 应用")
+                    .setUrl("https://example.com")
+                    .setImageUrl("https://picsum.photos/200/200") // 测试网络图片
+                    .build();
+            ShareManager.getInstance().showShareDialog(requireActivity(), content);
+        });
+
+        iconSwitchButton.setOnClickListener(v -> {
+            if (IconManager.isDefaultIcon(requireContext())) {
+                IconManager.setAlternateIcon(requireContext());
+                Toast.makeText(requireContext(), "已切换到备用图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+            } else {
+                IconManager.setDefaultIcon(requireContext());
+                Toast.makeText(requireContext(), "已切换到默认图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
