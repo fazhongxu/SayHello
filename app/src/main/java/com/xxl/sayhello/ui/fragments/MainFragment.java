@@ -61,12 +61,21 @@ public class MainFragment extends Fragment {
         });
 
         iconSwitchButton.setOnClickListener(v -> {
+            boolean success;
             if (IconManager.isDefaultIcon(requireContext())) {
-                IconManager.setAlternateIcon(requireContext());
-                Toast.makeText(requireContext(), "已切换到备用图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+                success = IconManager.setAlternateIcon(requireContext());
+                if (success) {
+                    Toast.makeText(requireContext(), "已切换到备用图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), "切换图标失败", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                IconManager.setDefaultIcon(requireContext());
-                Toast.makeText(requireContext(), "已切换到默认图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+                success = IconManager.setDefaultIcon(requireContext());
+                if (success) {
+                    Toast.makeText(requireContext(), "已切换到默认图标，请重启应用查看效果", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(requireContext(), "切换图标失败", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
