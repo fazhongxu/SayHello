@@ -14,10 +14,23 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('../sayhello.keystore')
+            storePassword '123456'
+            keyAlias 'sayhello'
+            keyPassword '123456'
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
