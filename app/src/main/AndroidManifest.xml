@@ -57,6 +57,11 @@
             android:name=".ui.activities.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.SayHello" />
+            
+        <activity
+            android:name=".ui.activities.TestCaseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SayHello" />
     </application>
 
 </manifest>

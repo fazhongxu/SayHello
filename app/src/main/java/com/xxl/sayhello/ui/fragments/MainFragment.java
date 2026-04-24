@@ -1,5 +1,6 @@
 package com.xxl.sayhello.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.xxl.sayhello.R;
 import com.xxl.sayhello.icon.IconManager;
 import com.xxl.sayhello.share.ShareContent;
 import com.xxl.sayhello.share.ShareManager;
+import com.xxl.sayhello.ui.activities.TestCaseActivity;
 import com.xxl.sayhello.utils.SharedPreferencesUtil;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -27,6 +29,7 @@ public class MainFragment extends Fragment {
     private Button logoutButton;
     private Button shareButton;
     private Button iconSwitchButton;
+    private Button aiImageCaseButton;
 
     @Nullable
     @Override
@@ -42,6 +45,7 @@ public class MainFragment extends Fragment {
         logoutButton = view.findViewById(R.id.logoutButton);
         shareButton = view.findViewById(R.id.shareButton);
         iconSwitchButton = view.findViewById(R.id.iconSwitchButton);
+        aiImageCaseButton = view.findViewById(R.id.aiImageCaseButton);
 
         logoutButton.setOnClickListener(v -> {
             SharedPreferencesUtil.clearUserData(requireContext());
@@ -77,6 +81,10 @@ public class MainFragment extends Fragment {
                     Toast.makeText(requireContext(), "切换图标失败", Toast.LENGTH_SHORT).show();
                 }
             }
+        });
+
+        aiImageCaseButton.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), TestCaseActivity.class));
         });
     }
 
