@@ -14,65 +14,19 @@
         android:textColor="@color/blue_700"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_bias="0.1" />
 
-    <Button
-        android:id="@+id/aiImageCaseButton"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/featureRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="AI图片案例"
-        android:backgroundTint="@color/teal_700"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/iconSwitchButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
-
-    <Button
-        android:id="@+id/iconSwitchButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="切换图标"
-        android:backgroundTint="@color/blue_500"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/shareButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aiImageCaseButton" />
-
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="分享"
-        android:backgroundTint="@color/green_500"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconSwitchButton" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/logout"
-        android:backgroundTint="@color/blue_500"
-        android:textColor="@color/white"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shareButton"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
