@@ -36,7 +36,6 @@ public class TestCaseAdapter extends BaseQuickAdapter<TestCaseEntity, BaseViewHo
             int itemWidth = (screenWidth - 30) / 2;
             int itemHeight = (int) (itemWidth * (float) item.getHeight() / item.getWidth());
             ivImage.getLayoutParams().height = itemHeight;
-            ivImage.requestLayout();
         }
 
         ivImage.setCornersRadius(cornerRadius, cornerRadius, 0, 0);
