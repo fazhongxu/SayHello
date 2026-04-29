@@ -12,11 +12,22 @@ import com.xxl.sayhello.R;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+/**
+ * Activity抽象基类，封装Activity + Fragment的通用模式。
+ * 提供默认的布局容器和Fragment加载逻辑，子类只需实现{@link #createFragment()}即可。
+ * 集成了Hilt依赖注入。
+ */
 @AndroidEntryPoint
-public abstract class BaseActivity extends BaseSupportActivity {
+public abstract class BaseActivity extends InnerActivity {
 
+    /**
+     * 创建Fragment
+     */
     protected abstract Fragment createFragment();
 
+    /**
+     * 获取布局资源ID，默认返回base_activity布局。
+     */
     protected int getLayoutId() {
         return R.layout.base_activity;
     }
@@ -30,6 +41,9 @@ public abstract class BaseActivity extends BaseSupportActivity {
         }
     }
 
+    /**
+     * 加载fragment
+     */
     protected void loadFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -41,6 +55,11 @@ public abstract class BaseActivity extends BaseSupportActivity {
         transaction.commit();
     }
 
+    /**
+     * 显示Toast提示
+     *
+     * @param message 提示内容
+     */
     protected void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
