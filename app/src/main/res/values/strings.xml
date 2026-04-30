@@ -17,4 +17,12 @@
     <string name="aop_test_button">获取 Android ID</string>
     <string name="aop_test_hint">点击按钮测试 ASM AOP 插桩</string>
     <string name="aop_test_result">Android ID: %s</string>
+    <string name="vip_not_logged_in">请先登录</string>
+    <string name="vip_not_vip">该功能仅限 VIP 用户使用</string>
+    <string name="aop_test_section_android_id">Android ID 检测</string>
+    <string name="aop_test_section_vip">VIP 权限检查</string>
+    <string name="aop_test_login_status">登录状态</string>
+    <string name="aop_test_vip_status">VIP 状态</string>
+    <string name="aop_test_vip_button">测试 VIP 功能</string>
+    <string name="aop_test_vip_success">VIP 验证通过，功能已解锁</string>
 </resources>

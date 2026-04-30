@@ -10,6 +10,7 @@ public class SharedPreferencesUtil {
     private static final String KEY_USER_ID = "user_id";
     private static final String KEY_USERNAME = "username";
     private static final String KEY_NICKNAME = "nickname";
+    private static final String KEY_IS_VIP = "is_vip";
 
     private static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -49,5 +50,13 @@ public class SharedPreferencesUtil {
 
     public static void clearUserData(Context context) {
         getSharedPreferences(context).edit().clear().apply();
+    }
+
+    public static boolean isVip(Context context) {
+        return getSharedPreferences(context).getBoolean(KEY_IS_VIP, false);
+    }
+
+    public static void setVip(Context context, boolean vip) {
+        getSharedPreferences(context).edit().putBoolean(KEY_IS_VIP, vip).apply();
     }
 }
