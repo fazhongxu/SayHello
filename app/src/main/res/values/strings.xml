@@ -12,4 +12,9 @@
     <string name="login_failed">Login failed</string>
     <string name="welcome">Welcome, %s!</string>
     <string name="logout">Logout</string>
+    <string name="aop_android_id_detected">检测到 Android ID 被访问</string>
+    <string name="aop_test_feature_title">ASM AOP 测试</string>
+    <string name="aop_test_button">获取 Android ID</string>
+    <string name="aop_test_hint">点击按钮测试 ASM AOP 插桩</string>
+    <string name="aop_test_result">Android ID: %s</string>
 </resources>

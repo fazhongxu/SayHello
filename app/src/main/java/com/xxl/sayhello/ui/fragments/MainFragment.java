@@ -19,6 +19,7 @@ import com.xxl.sayhello.icon.IconManager;
 import com.xxl.sayhello.models.FeatureItem;
 import com.xxl.sayhello.share.ShareContent;
 import com.xxl.sayhello.share.ShareManager;
+import com.xxl.sayhello.ui.activities.AopTestActivity;
 import com.xxl.sayhello.ui.activities.TestCaseActivity;
 import com.xxl.sayhello.ui.base.BaseFragment;
 import com.xxl.sayhello.utils.SharedPreferencesUtil;
@@ -51,13 +52,13 @@ public class MainFragment extends BaseFragment {
                 startActivity(intent);
             } else {
                 switch (position) {
-                    case 1:
+                    case 2:
                         handleShare();
                         break;
-                    case 2:
+                    case 3:
                         handleIconSwitch();
                         break;
-                    case 3:
+                    case 4:
                         handleLogout();
                         break;
                 }
@@ -83,6 +84,7 @@ public class MainFragment extends BaseFragment {
         List<FeatureItem> features = new ArrayList<>();
 
         features.add(new FeatureItem("测试案例", TestCaseActivity.class));
+        features.add(new FeatureItem(getString(R.string.aop_test_feature_title), AopTestActivity.class));
         features.add(new FeatureItem("分享功能", null));
         features.add(new FeatureItem("图标切换", null));
         features.add(new FeatureItem("退出登录", null));
